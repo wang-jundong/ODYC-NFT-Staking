@@ -1,0 +1,72 @@
+{
+	"name": "wulfznft",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@kunukn/react-collapse": "^2.2.9",
+		"@testing-library/jest-dom": "^5.16.1",
+		"@testing-library/react": "^12.1.2",
+		"@testing-library/user-event": "^13.5.0",
+		"@web3-react/core": "^6.1.9",
+		"@web3-react/injected-connector": "^6.0.7",
+		"axios": "^0.25.0",
+		"dotenv": "^14.2.0",
+		"react": "^17.0.2",
+		"react-cssfx-loading": "^1.0.3",
+		"react-dom": "^17.0.2",
+		"react-notifications-component": "^3.4.0",
+		"react-redux": "^7.2.6",
+		"react-router-dom": "^6.2.1",
+		"react-scripts": "5.0.0",
+		"react-select": "^5.2.2",
+		"redux": "^4.1.2",
+		"redux-devtools-extension": "^2.13.9",
+		"redux-thunk": "^2.4.1",
+		"validator": "^13.7.0",
+		"web-vitals": "^2.1.4",
+		"web3": "^1.7.0"
+	},
+	"scripts": {		
+		"pm2": "pm2 start --name ODYC npm -- start ",  
+		"start": "react-app-rewired start",
+		"build": "react-app-rewired build",
+		"test": "react-app-rewired test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"assert": "^2.0.0",
+		"autoprefixer": "^10.4.2",
+		"crypto-browserify": "^3.12.0",
+		"https-browserify": "^1.0.0",
+		"os-browserify": "^0.3.0",
+		"postcss": "^8.4.5",
+		"react-app-rewired": "^2.1.11",
+		"stream-browserify": "^3.0.0",
+		"stream-http": "^3.2.0",
+		"tailwindcss": "^3.0.16",
+		"url": "^0.11.0",
+		"react-icons": "^4.3.1",
+		"react-intersection-observer": "^8.33.1",
+		"react-scroll": "^1.8.6",
+		"swiper": "^8.0.7",
+		"@heroicons/react": "^1.0.6"
+	}
+}

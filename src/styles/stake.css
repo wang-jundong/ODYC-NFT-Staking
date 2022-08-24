@@ -1,0 +1,36 @@
+#stake {
+    /* background: #fffcea; */
+    font-weight: 500;
+    color: #4d1e00;
+    background-image: url(../assets//pngs//banner.png);
+    background-repeat: no-repeat;
+    /* background-position: cover; */
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+@media (max-width: 1200px) {
+    #stake {
+        background-size: 130% 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    #stake {
+        background-size: 160% 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    #stake {
+        background-size: 200% 100%;
+    }
+}
+
+#stake a,
+#stake a:active,
+#stake a:visited {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

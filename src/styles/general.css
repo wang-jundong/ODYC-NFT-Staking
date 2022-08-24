@@ -1,0 +1,1343 @@
+.Statistics_Wrapper {
+    width: 100%;
+    height: auto;
+    /* background-image: url("/src/assets/svgs/statistics-background.svg"); */
+    background: url("/public/images/static_background.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 50%;
+    padding: 32px 50px;
+    margin-top: 40px;
+}
+
+.Statistics_Wrapper .Statistics_GridContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 72px;
+    -moz-box-pack: center;
+    justify-content: center;
+    -moz-box-align: center;
+    align-items: center;
+    grid-gap: 30px;
+    gap: 30px;
+}
+
+.Statistics_Wrapper .Statistics_GridContainer .Statistics_Item {
+    display: -moz-box;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    height: 96px;
+    /* background-image: url("/src/assets/svgs/statistics-item-background.svg"); */
+    background-image: url("/public/images/static-item-background.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+}
+
+.Statistics_Wrapper .Statistics_GridContainer .Statistics_Item .png {
+    width: 92px;
+    height: 95px;
+}
+
+/* .Statistics_Wrapper .Statistics_GridContainer .Statistics_Item:nth-of-type(2) {
+	padding-right: 20px;
+}
+.Statistics_Wrapper
+	.Statistics_GridContainer
+	.Statistics_Item:nth-of-type(2)
+	img {
+	-webkit-transform: unset;
+	-moz-transform: unset;
+	transform: unset;
+}
+.Statistics_Wrapper
+	.Statistics_GridContainer
+	.Statistics_Item:nth-of-type(2)
+	div {
+	margin-left: 22px;
+} */
+.Statistics_Wrapper .Statistics_GridContainer .Statistics_Item img {
+    -webkit-transform: translateX(-25px);
+    -moz-transform: translateX(-25px);
+    transform: translateX(-25px);
+}
+
+.Statistics_Wrapper .Statistics_GridContainer .Statistics_Item div {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.Statistics_Wrapper .Statistics_GridContainer .Statistics_Item div h2 {
+    font-family: Hiragino Kaku Gothic Std, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue,
+        sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.Statistics_Wrapper .Statistics_GridContainer .yield div h2 {
+    font-size: 20px;
+}
+
+.Statistics_Wrapper .Statistics_GridContainer .Statistics_Item div h3 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.Statistics_Wrapper .Statistics_GridContainer button {
+    height: 48px;
+    background-color: #4d83f7;
+    /* background: url("/src/assets/svgs/blue-btn-background-sm.svg"); */
+    background: url("/public//images/blue-button.png");
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+    background-position: 50% !important;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+
+
+.Card_Wrapper {
+    height: 700px;
+    position: relative;
+    padding: 0 78px;
+    z-index: 10;
+}
+
+.Card_Wrapper .Card_Background,
+.Card_Wrapper .Card_DesktopBackground,
+.Card_Wrapper .Card_MobileBackground {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.Card_Wrapper .Card_MobileBackground {
+    display: none !important;
+}
+
+.Card_Wrapper h1 {
+    font-family: Hiragino Kaku Gothic Std, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue,
+        sans-serif;
+    color: #fff;
+    font-weight: 900;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card_Wrapper h1 img {
+    width: 250px;
+}
+
+.Card_Wrapper .Card_Selector {
+    display: -moz-box;
+    display: flex;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    -moz-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    /* background: url("/src/assets/svgs/selector-background.svg"); */
+    background: url("/public/images/selector-background.svg");
+    background-repeat: no-repeat !important;
+    background-position: 50% !important;
+    background-size: contain !important;
+    position: relative;
+    padding: 5px 4px;
+    margin-top: 180px;
+}
+
+.Card_Wrapper .Card_Selector button {
+    background: none;
+    width: 100%;
+    height: 100%;
+    color: rgba(77, 30, 0, 0.45);
+    font-weight: 500;
+    font-size: 20px;
+
+}
+
+.Card_Wrapper .Card_Selector button.duck_button {
+    border-radius: 10px 0px 0px 10px;
+}
+
+
+.Card_Wrapper .Card_Selector button.alpha_button {
+    border-radius: 0px 10px 10px 0px;
+}
+
+.Card_Wrapper .Card_Selector button.Card_Green {
+    background: #7dce90;
+    color: #fff;
+}
+
+.Card_Wrapper .Card_Selector button.Card_Red {
+    background: #f3654c;
+    color: #fff;
+}
+
+.Card_Wrapper .Card_GridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    -moz-box-align: end;
+    align-items: flex-end;
+    margin-top: 28px;
+}
+
+.Card_Wrapper .Card_GridContainer div {
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    -moz-box-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.Card_Wrapper .Card_GridContainer div img {
+    width: 92px;
+    height: auto;
+}
+
+.Card_Wrapper .Card_GridContainer div h2 {
+    font-family: Hiragino Kaku Gothic Std, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue,
+        sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-top: 24px;
+}
+
+.Card_Wrapper .Card_GridContainer div h3 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.Card_Wrapper .Card_InputContainer {
+    margin-top: 20px;
+}
+
+.Card_Wrapper .Card_InputContainer .Card_ButtonContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.Card_Wrapper .Card_InputContainer .Card_ButtonContainer button {
+    height: 80px;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: 50% !important;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.Card_Wrapper .Card_InputContainer .Card_ButtonContainer .Card_ActionBtn.Card_Green {
+    background-color: #7dce90;
+    /* background: url("/src/assets/svgs/green-btn-background.svg");
+     */
+    background: url("/public/images/green-button.png");
+    background-size: 100% 100%;
+}
+
+.Card_Wrapper .Card_InputContainer .Card_ButtonContainer .Card_ActionBtn.Card_Red {
+    background-color: #f3654c;
+    /* background: url("/src/assets/svgs/red-btn-background.svg"); */
+    background: url("/public/images/red-button.png");
+}
+
+.Card_Wrapper .Card_InputContainer .Card_ButtonContainer .Card_MaxBtn {
+    /* background: url("/src/assets/svgs/max-btn-background.svg"); */
+    background: url("/public/images/max-button.png");
+    color: #774f2a;
+}
+
+
+
+
+
+.AdoptionBook_Wrapper {
+    width: 100%;
+    height: 732px;
+    position: relative;
+    margin-top: 40px;
+    z-index: 10;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_DesktopBackground,
+.AdoptionBook_Wrapper .AdoptionBook_MobileBackground {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_MobileBackground {
+    display: none;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left {
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    -moz-box-pack: center;
+    justify-content: center;
+    -moz-box-align: center;
+    align-items: center;
+    width: 516px;
+    position: absolute;
+    left: 25px;
+    /* before */
+    /* padding: 0 30px; */
+    /* current */
+    padding: 0px 50px 0px 70px;
+    margin-top: 54px;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left h1 {
+    font-family: Hiragino Kaku Gothic Std, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue,
+        sans-serif;
+    color: #fff;
+    font-weight: 800;
+    font-size: 24px;
+    color: transparent !important;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer {
+    display: -moz-box;
+    display: flex;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    -moz-box-align: center;
+    align-items: center;
+    width: 100%;
+    font-family: Hiragino Kaku Gothic Std, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue,
+        sans-serif;
+    margin: 112px auto 0;
+    margin-top: 30px;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer h3 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer div {
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    -moz-box-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer div img {
+    width: 92px;
+    height: auto;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer div h2 {
+    font-weight: 900;
+    font-size: 24px;
+    margin-top: 24px;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_IncrementCounter {
+    display: -moz-box;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    grid-gap: 24px;
+    gap: 24px;
+    margin-top: 105px;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_IncrementCounter button {
+    background: none;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_IncrementCounter span {
+    font-weight: 800;
+    font-size: 48px;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer {
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    grid-gap: 16px;
+    gap: 16px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer-selectwrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer-selectwrap-inner {
+    width: 48%;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .selectwrap_duckling {
+    width: 50%;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer-selectwrap .css-g1d714-ValueContainer {
+    height: 36px !important;
+    overflow-y: scroll !important;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer-inputwrap {
+    align-items: center;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer-inputwrap input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 38px;
+    background-color: transparent;
+    color: #4d1e00;
+    border: solid 1px #d5a676 !important;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer-inputwrap input::placeholder {
+    color: #4d1e00;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer button {
+    width: 100%;
+    height: 80px;
+    background-color: #7dce90;
+    /* background: url("/src/assets/svgs/green-btn-background.svg"); */
+    background: url("/public/images/green-button.png");
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: 50% !important;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Right {
+    position: absolute;
+    right: 58px;
+    margin-top: 73px;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Right h1 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+}
+
+.AdoptionBook_Wrapper .AdoptionBook_Right img {
+    max-width: 445px;
+    margin-top: 75px;
+}
+
+/* AdoptionBook_Left card selector */
+
+.AdoptionBook_Left .Card_Selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 404px;
+    height: 64px;
+    background: url("/public/images/selector-background.svg");
+    background-repeat: no-repeat !important;
+    background-position: 50% !important;
+    background-size: contain !important;
+    position: relative;
+    padding: 5px 4px;
+    margin-top: 90px;
+}
+
+.AdoptionBook_Left .Card_Selector button {
+    background: none;
+    width: 100%;
+    height: 100%;
+    color: rgba(77, 30, 0, 0.45);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.AdoptionBook_Left .Card_Selector button.duck_button {
+    border-radius: 10px 0px 0px 10px;
+}
+
+
+.AdoptionBook_Left .Card_Selector button.alpha_button {
+    border-radius: 0px 10px 10px 0px;
+}
+
+.AdoptionBook_Left .Card_Selector button.Card_Green {
+    background: #7dce90;
+    color: #fff;
+}
+
+.AdoptionBook_Left .Card_Selector button.Card_Red {
+    background: #f3654c;
+    color: #fff;
+}
+
+@media (max-width: 1280px) {
+    .Card_Wrapper h1 {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 1195px) {
+    .EvolutionBook_Wrapper {
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        height: 720px;
+        margin: 40px auto 0;
+    }
+
+    .Card_Wrapper .Card_Selector {
+        padding: 0px 10px;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_DesktopBackground {
+        display: none;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_MobileBackground {
+        display: block;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left {
+        max-width: 258px;
+        position: unset;
+        left: unset;
+        padding: 0 20px;
+        margin: 0 auto;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left h1 {
+        display: none;
+        font-size: 12px;
+        margin-top: 60px;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_FlexContainer {
+        display: none;
+        margin: 55px auto 0;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_FlexContainer h3 {
+        font-size: 24px;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_FlexContainer div img {
+        width: 46px;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_FlexContainer div h2 {
+        font-size: 12px;
+        margin-top: 12px;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_ButtonContainer {
+        -moz-box-pack: justify;
+        justify-content: space-between;
+        -moz-box-align: center;
+        align-items: center;
+        grid-gap: 12px;
+        gap: 12px;
+        margin-top: 210px;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_ButtonContainer>div {
+        width: 100%;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_ButtonContainer input {
+        height: 10px;
+        font-size: 10px;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_ButtonContainer button {
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .EvolutionBook_Wrapper .EvolutionBook_Right {
+        display: none;
+    }
+
+    .AdoptionBook_Wrapper {
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        height: 1500px;
+        margin: 40px auto 0;
+        width: 580px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_DesktopBackground {
+        display: none;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_MobileBackground {
+        display: block;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left {
+        width: 100%;
+        position: unset;
+        left: unset;
+        padding: 0 60px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left h1 {
+        display: none;
+    }
+
+    .AdoptionBook_Left .Card_Selector {
+        margin-top: 150px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_IncrementCounter {
+        grid-gap: 12px;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_IncrementCounter img {
+        width: 20px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_IncrementCounter span {
+        font-size: 24px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer {
+        -moz-box-pack: justify;
+        justify-content: space-between;
+        -moz-box-align: center;
+        align-items: center;
+        grid-gap: 12px;
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .AdoptionBook_ButtonContainer-selectwrap {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 10px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer-selectwrap-inner {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer>div {
+        width: 100%;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer-inputwrap {
+        padding: 0px 10px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer input {
+        /* padding: 10px; */
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer button {
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Right {
+        display: none;
+    }
+}
+
+@media (max-width: 1050px) {
+    .Statistics_Wrapper {
+        background: none;
+        padding: 0;
+        margin-top: 25px;
+    }
+
+    .Statistics_Wrapper .Statistics_GridContainer {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        gap: 20px;
+    }
+
+    .Statistics_Wrapper .Statistics_GridContainer .Statistics_Item {
+        width: 100%;
+        height: 60px;
+    }
+
+    .Statistics_Wrapper .Statistics_GridContainer .Statistics_Item .png {
+        width: 60px;
+        height: 62px;
+    }
+
+    .Statistics_Wrapper .Statistics_GridContainer .Statistics_Item img {
+        width: 60px;
+        height: auto;
+        -webkit-transform: unset;
+        -moz-transform: unset;
+        transform: unset;
+    }
+
+    .Statistics_Wrapper .Statistics_GridContainer .Statistics_Item div {
+        margin: 0 auto !important;
+    }
+
+    .Statistics_Wrapper .Statistics_GridContainer .Statistics_Item div h2 {
+        font-size: 18px;
+    }
+
+    .Statistics_Wrapper .Statistics_GridContainer .Statistics_Item div h3 {
+        font-size: 16px;
+    }
+
+    .Statistics_Wrapper .Statistics_GridContainer button {
+        /* background: url("/src/assets/svgs/blue-btn-background-lg.svg"); */
+        background: url("/public//images/blue-button-lg.png");
+        background-size: 100% 100% !important;
+    }
+}
+
+
+.EvolutionBook_Wrapper {
+    width: 100%;
+    height: 732px;
+    position: relative;
+    margin-top: 40px;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_DesktopBackground,
+.EvolutionBook_Wrapper .EvolutionBook_MobileBackground {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_MobileBackground {
+    display: none;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Left {
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    -moz-box-pack: center;
+    justify-content: center;
+    -moz-box-align: center;
+    align-items: center;
+    width: 516px;
+    position: absolute;
+    left: 25px;
+    padding: 0 30px;
+    margin-top: 54px;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Left h1 {
+    font-family: Hiragino Kaku Gothic Std, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue,
+        sans-serif;
+    color: #fff;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_FlexContainer {
+    display: -moz-box;
+    display: flex;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    -moz-box-align: center;
+    align-items: center;
+    width: 100%;
+    font-family: Hiragino Kaku Gothic Std, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue,
+        sans-serif;
+    margin: 112px auto 0;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_FlexContainer h3 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_FlexContainer div {
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    -moz-box-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_FlexContainer div img {
+    width: 92px;
+    height: auto;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_FlexContainer div h2 {
+    font-weight: 900;
+    font-size: 24px;
+    margin-top: 24px;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_ButtonContainer {
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    grid-gap: 16px;
+    gap: 16px;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Left .EvolutionBook_ButtonContainer button {
+    width: 100%;
+    height: 80px;
+    background-color: #f3654c;
+    background: url("/src/assets/svgs/red-btn-background-long.svg");
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: 50% !important;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Right {
+    position: absolute;
+    right: 58px;
+    margin-top: 73px;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Right h1 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+}
+
+.EvolutionBook_Wrapper .EvolutionBook_Right img {
+    max-width: 445px;
+    margin-top: 75px;
+}
+
+
+
+.ShopStatistics_Wrapper {
+    width: 100%;
+    height: auto;
+    background-image: url("/src/assets/svgs/shop-statistics-background.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    padding: 32px 140px;
+    margin-top: 40px;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer {
+    display: grid;
+    grid-template-columns: 30% 30% 50%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    grid-gap: 40px;
+    gap: 40px;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_Item {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 96px;
+    width: 260px;
+    background-image: url("/src/assets/svgs/statistics-item-background.svg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_Item img {
+    -webkit-transform: translateX(-25px);
+    transform: translateX(-25px);
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_Item div {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_Item div h2 {
+    font-family: Hiragino Kaku Gothic Std, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue,
+        sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_Item div h3 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer a {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    color: #fff;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: 75%;
+    aspect-ratio: 3;
+    background-color: #4d83f7;
+    background: url("/src/assets/svgs/blue-btn-background-shop-statistics.svg");
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: 50% !important;
+    font-weight: 600;
+    font-size: 24px;
+    opacity: 0.8;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_BtnContainer {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 50% 50%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    grid-gap: 10px;
+    gap: 10px;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_BtnContainer {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 50% 50%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    grid-gap: 10px;
+    gap: 10px;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_BtnContainer .ShopStatistics_LiveBtn {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    color: #fff;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: 75%;
+    aspect-ratio: 2.6;
+    background-color: #4d83f7;
+    background: url("/src/assets/svgs/green-btn-background.svg");
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: 50% !important;
+    font-weight: 600;
+    font-size: 24px;
+    opacity: 0.5;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_BtnContainer .ShopStatistics_EndedBtn {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    color: #fff;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: 75%;
+    aspect-ratio: 2.6;
+    background-color: #4d83f7;
+    background: url("/src/assets/svgs/red-btn-background.svg");
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: 50% !important;
+    font-weight: 600;
+    font-size: 24px;
+    opacity: 0.5;
+}
+
+.ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_BtnContainer .ShopStatistics_Selected {
+    opacity: 0.9;
+}
+
+.ShopCard_Wrapper {
+    height: 500px;
+    position: relative;
+    padding: 0 36px;
+    margin-top: 3px;
+}
+
+.ShopCard_Wrapper .ShopCard_Background,
+.ShopCard_Wrapper .ShopCard_DesktopBackground,
+.ShopCard_Wrapper .ShopCard_MobileBackground {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ShopCard_Wrapper .ShopCard_MobileBackground {
+    display: none !important;
+}
+
+.ShopCard_Wrapper .ShopCard_CardTitle {
+    display: flex;
+    height: 89px;
+    align-items: center;
+    width: 100%;
+    padding-top: 18px;
+}
+
+.ShopCard_Wrapper .ShopCard_CardTitle h1 {
+    font-size: 18px;
+    text-align: left;
+    color: #774f2a;
+    margin: 0;
+    flex: 1 1;
+}
+
+.ShopCard_Wrapper .ShopCard_CardTitle .ShopCard_UnitPrice {
+    font-size: 20px;
+    padding-right: 5px;
+    color: #4d1e00;
+}
+
+.ShopCard_Wrapper .ShopCard_CardImg {
+    width: 100%;
+    height: 269px;
+}
+
+.ShopCard_Wrapper .ShopCard_CentreAlign {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 580px) {
+    .Card_Wrapper {
+        height: auto;
+        padding: 30px 40px;
+    }
+
+    .Card_Wrapper .Card_Selector button {
+        font-size: 15px;
+    }
+
+    .Card_Wrapper .Card_DesktopBackground {
+        display: none;
+    }
+
+    .Card_Wrapper .Card_MobileBackground {
+        display: block !important;
+    }
+
+    .Card_Wrapper h1 {
+        display: none;
+
+    }
+
+    .AdoptionBook_Wrapper {
+        width: 385px;
+    }
+
+    .AdoptionBook_Left .Card_Selector {
+        width: 300px;
+        padding: 10px 0px;
+    }
+
+    .AdoptionBook_Left .Card_Selector button {
+        font-size: 15px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left {
+        padding: 0px 30px;
+    }
+
+    .Card_Wrapper .Card_Selector {
+        padding: 12px 3px;
+    }
+
+    .Card_Wrapper .Card_GridContainer {
+        margin-top: 25px;
+    }
+
+    .Card_Wrapper .Card_GridContainer div img {
+        width: 60px;
+    }
+
+    .Card_Wrapper .Card_GridContainer div h2 {
+        font-size: 15px;
+        margin-top: 12px;
+    }
+
+    .Card_Wrapper .Card_GridContainer div h3 {
+        font-size: 16px;
+    }
+
+    .Card_Wrapper .Card_InputContainer {
+        margin-top: 50px;
+    }
+
+    .Card_Wrapper .Card_InputContainer input {
+        height: 60px;
+        font-size: 18px;
+    }
+
+    .Card_Wrapper .Card_InputContainer .Card_ButtonContainer {
+        -moz-box-pack: justify;
+        justify-content: space-between;
+        -moz-box-align: center;
+        align-items: center;
+        grid-gap: unset;
+        gap: unset;
+    }
+
+    .Card_Wrapper .Card_InputContainer .Card_ButtonContainer button {
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .Card_Wrapper .Card_Selector {
+        margin-top: 130px;
+    }
+
+    .Card_Wrapper .Card_GridContainer {
+        margin-top: 10px;
+    }
+
+    .Card_Wrapper .Card_InputContainer {
+        margin-top: 10px;
+    }
+
+    .Card_Wrapper .Card_InputContainer .Card_ButtonContainer {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .Card_Wrapper .Card_Selector button {
+        font-size: 12px;
+    }
+
+    .Card_Wrapper .Card_GridContainer {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .AdoptionBook_Wrapper {
+        width: 335px;
+    }
+
+    .AdoptionBook_Left .Card_Selector {
+        width: 250px;
+        padding: 14px 1px;
+    }
+}
+
+@media (max-width: 375px) {
+
+
+    .Card_Wrapper h1 {
+        font-size: 12px;
+        margin: -8px auto 0;
+    }
+
+    .Card_Wrapper .Card_GridContainer {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+        gap: 30px;
+    }
+
+    .Card_Wrapper .Card_GridContainer div img {
+        width: 46px;
+    }
+
+    .Card_Wrapper .Card_GridContainer div h2 {
+        font-size: 12px;
+    }
+
+    .Card_Wrapper .Card_GridContainer div h3 {
+        font-size: 10px;
+    }
+
+    .Card_Wrapper .Card_InputContainer {
+        margin-top: 34px;
+    }
+
+    .Card_Wrapper .Card_InputContainer input {
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .Card_Wrapper .Card_InputContainer .Card_ButtonContainer button {
+        height: 40px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 350px) {
+    .AdoptionBook_Wrapper {
+        width: 280px;
+    }
+
+    .AdoptionBook_Left .Card_Selector {
+        width: 230px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer div h2 {
+        font-size: 15px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer div img {
+        width: 60px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_ButtonContainer-selectwrap-inner label {
+        font-size: 14px;
+    }
+
+    .Card_Wrapper .Card_Selector {
+        padding: 17px 3px;
+    }
+}
+
+/* customer */
+
+.EvolutionBook_Wrapper,
+.ShopCard_Wrapper {
+    z-index: 10;
+}
+
+.shop-content {
+    display: flex;
+    justify-content: center;
+}
+
+.shop-content .ShopCard_Wrapper {
+    background-image: url('/public/images/shop-background.png');
+    padding: 50px;
+    background-size: 100% 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-content h1 {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.shop-content .ShopCard_Wrapper img {
+    width: 300px;
+}
+
+.Navbar_Wrapper .Navbar_Container .Navbar_IconContainer .opensea {
+    background-color: rgb(32 129 226);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+/* progress style */
+
+.progress {
+    margin-top: 20px;
+    margin-bottom: -20px;
+    position: relative;
+}
+
+.progress p {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+#state .progress progress[value] {
+    width: 100%;
+    height: 30px;
+}
+
+#stake .progress progress[value]::-webkit-progress-bar {
+    background-color: rgb(255 233 176);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+#stake .progress progress[value]::-webkit-progress-value {
+    background-color: rgb(77 30 0);
+
+    border-radius: 10px;
+    background-size: 35px 20px,
+        100% 100%,
+        100% 100%;
+}
