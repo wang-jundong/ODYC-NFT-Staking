@@ -15,7 +15,6 @@ export const balanceOf = async (active, account, library) => {
 	const userTokenCount = await minotaurContractInstance(library)
 		.methods.balanceOf(account)
 		.call();
-	console.log("----------------balanceOf", userTokenCount);
 	return userTokenCount;
 };
 
@@ -24,7 +23,6 @@ export const tokenOfOwnerByIndex = async (active, account, library, index) => {
 	const tokenId = await minotaurContractInstance(library)
 		.methods.tokenOfOwnerByIndex(account, index)
 		.call();
-	console.log("----------------tokenOfOwnerByIndex");
 	return tokenId;
 };
 
@@ -33,7 +31,6 @@ export const minotaur = async (active, account, library, tokenId) => {
 	const tokenInformation = await minotaurContractInstance(library)
 		.methods.minotaur(tokenId)
 		.call();
-	console.log("----------------minotaur");
 	return tokenInformation;
 };
 
@@ -51,11 +48,9 @@ export const setApprovalForAll = async (active, account, library) => {
 		.methods.setApprovalForAll(MinotaurNFTAddress, true)
 		.send({ from: account })
 		.on("receipt", function (receipt) {
-			console.log("--- receipt ---", receipt);
 			return true;
 		})
 		.on("error", function (error) {
-			console.log("--- error ---", error);
 			return false;
 		});
 };
@@ -76,7 +71,6 @@ export const startStaking =
 			})
 			.on("error", function (error) {
 				dispatch({ type: TOKENS_LOADING, payload: false });
-				console.log("--- startStaking ---", error);
 			});
 	};
 
@@ -96,7 +90,6 @@ export const stopStaking =
 			})
 			.on("error", function (error) {
 				dispatch({ type: TOKENS_LOADING, payload: false });
-				console.log("--- error ---", error);
 			});
 	};
 

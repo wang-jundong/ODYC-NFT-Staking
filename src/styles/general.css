@@ -21,14 +21,20 @@
     gap: 30px;
 }
 
+.Statistics_Wrapper .static-button-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .Statistics_Wrapper .Statistics_GridContainer .Statistics_Item {
     display: -moz-box;
     display: flex;
     -moz-box-align: center;
     align-items: center;
     height: 96px;
-    /* background-image: url("/src/assets/svgs/statistics-item-background.svg"); */
-    background-image: url("/public/images/static-item-background.png");
+    background: url("/public/images/svg/statistics-item-background.svg");
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: cover;
@@ -86,6 +92,7 @@
 
 .Statistics_Wrapper .Statistics_GridContainer button {
     height: 48px;
+    width: 100px;
     background-color: #4d83f7;
     /* background: url("/src/assets/svgs/blue-btn-background-sm.svg"); */
     background: url("/public//images/blue-button.png");
@@ -94,6 +101,14 @@
     background-position: 50% !important;
     font-weight: 500;
     font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.Statistics_Wrapper .Statistics_GridContainer .unstake_all {
+    /* background: url("/public/images/red-button.png"); */
+    background: url("/public/images/svg/red-btn-background.svg");
+    font-size: 13px;
+    width: 100px;
 }
 
 
@@ -153,8 +168,9 @@
     background-repeat: no-repeat !important;
     background-position: 50% !important;
     background-size: contain !important;
+    /* background-size: 100% 100%; */
     position: relative;
-    padding: 5px 4px;
+    /* padding: 5px 4px; */
     margin-top: 180px;
 }
 
@@ -311,7 +327,7 @@
     /* before */
     /* padding: 0 30px; */
     /* current */
-    padding: 0px 50px 0px 70px;
+    padding: 0px 30px 0px 80px;
     margin-top: 54px;
 }
 
@@ -329,7 +345,7 @@
     display: -moz-box;
     display: flex;
     -moz-box-pack: justify;
-    justify-content: space-between;
+    justify-content: space-around;
     -moz-box-align: center;
     align-items: center;
     width: 100%;
@@ -358,13 +374,13 @@
 }
 
 .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer div img {
-    width: 92px;
+    width: 80px;
     height: auto;
 }
 
 .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer div h2 {
     font-weight: 900;
-    font-size: 24px;
+    font-size: 20px;
     margin-top: 24px;
 }
 
@@ -482,7 +498,7 @@
     background-position: 50% !important;
     background-size: contain !important;
     position: relative;
-    padding: 5px 4px;
+    /* padding: 5px 4px; */
     margin-top: 90px;
 }
 
@@ -735,8 +751,15 @@
 
     .Statistics_Wrapper .Statistics_GridContainer button {
         /* background: url("/src/assets/svgs/blue-btn-background-lg.svg"); */
-        background: url("/public//images/blue-button-lg.png");
+        /* background: url("/public//images/blue-button-lg.png"); */
+        background: url("/public/images/svg/blue-btn-background-lg.svg");
         background-size: 100% 100% !important;
+        width: 95%;
+        margin-bottom: 20px;
+    }
+
+    .Statistics_Wrapper .Statistics_GridContainer .unstake_all {
+        width: 95%;
     }
 }
 
@@ -877,11 +900,12 @@
 .ShopStatistics_Wrapper {
     width: 100%;
     height: auto;
-    background-image: url("/src/assets/svgs/shop-statistics-background.svg");
+    /* background-image: url("/src/assets/svgs/shop-statistics-background.svg"); */
+    background-image: url("/public/images/static_background.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50%;
-    padding: 32px 140px;
+    padding: 32px 160px;
     margin-top: 40px;
 }
 
@@ -1197,6 +1221,15 @@
         width: 250px;
         padding: 14px 1px;
     }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer div img {
+        width: 60px;
+    }
+
+    .AdoptionBook_Wrapper .AdoptionBook_Left .AdoptionBook_FlexContainer div h2 {
+        font-size: 15px;
+    }
+
 }
 
 @media (max-width: 375px) {
@@ -1262,7 +1295,11 @@
     }
 
     .Card_Wrapper .Card_Selector {
-        padding: 17px 3px;
+        padding: 17px 0px;
+    }
+
+    .Card_Wrapper .Card_Selector button.duck_button {
+        border-radius: 5px 0px 0px 5px;
     }
 }
 
@@ -1279,7 +1316,8 @@
 }
 
 .shop-content .ShopCard_Wrapper {
-    background-image: url('/public/images/shop-background.png');
+    /* background-image: url('/public/images/shop-background.png'); */
+    background-image: url("/public/images/market-bg.png");
     padding: 50px;
     background-size: 100% 100%;
     width: 100%;

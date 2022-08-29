@@ -1,8 +1,8 @@
 import { useWeb3React } from "@web3-react/core";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTotalSupply } from "../../../api/AlphaWeb3"
-import { getReward, claim, getBalance } from "../../../api/BeeWeb3"
+import { getTotalSupply, getGooseCount } from "../../../api/AlphaWeb3"
+import { getReward, claim, getBalance, unstakeAll } from "../../../api/BeeWeb3"
 import {
 	totalSupplyMellon,
 	totalSupplyYparchos,
@@ -20,8 +20,9 @@ import {
 } from "../../../redux/reducers/tokensReducer";
 import { showNotification } from "../../utils/NotificationUtils";
 import StatisticsItem from "./StatisticsItem";
+import { TOKENS_STAKE_IDS_DUCK, TOKENS_STAKE_IDS_DUCKLING, TOKENS_STAKE_IDS_ALPHA, TOKENS_USER_IDS_DUCK, TOKENS_USER_IDS_DUCKLING, TOKENS_USER_IDS_ALPHA } from "../../../redux/constants";
 
-const Statistics = ({ page }) => {
+const Statistics = ({ page, tab }) => {
 	const { active, account, library } = useWeb3React();
 	const dispatch = useDispatch();
 
@@ -79,8 +80,13 @@ const Statistics = ({ page }) => {
 			showNotification("error", "Please connect to metamask!");
 			return;
 		}
-		var result = await getTotalSupply(active, account, library);
-		setRemainingMellon(maxSupplyAlpha - result);
+		if (page === 1 && tab === 2) {
+			var result = parseInt((await getGooseCount(active, account, library)) / 5);
+			setRemainingMellon(`${result}/444`);
+		} else {
+			var result = await getTotalSupply(active, account, library);
+			setRemainingMellon(maxSupplyAlpha - result);
+		}
 	}
 
 	const claimAll = async () => {
@@ -90,6 +96,43 @@ const Statistics = ({ page }) => {
 		}
 
 		dispatch(claim(active, account, library, (status) => {
+			dispatch({ type: TOKENS_LOADING, payload: false });
+		}))
+	}
+
+	const unStakeAllRequest = async () => {
+		if (!active) {
+			showNotification("error", "Please connect to metamask!");
+			return;
+		}
+
+		dispatch(unstakeAll(active, account, library, (status) => {
+			if (status) {
+				const changedUserTokenofDuck = userTokenIdsOfDuck;
+				stakedTokenIdsOfDuck.map((item, index) => { changedUserTokenofDuck.push(item) });
+				dispatch({ type: TOKENS_USER_IDS_DUCK, payload: changedUserTokenofDuck });
+				dispatch({
+					type: TOKENS_STAKE_IDS_DUCK,
+					payload: [],
+				});
+				const changedUserTokenofDuckling = userTokenIdsOfDuckling;
+				stakedTokenIdsOfDuckling.map((item, index) => { changedUserTokenofDuckling.push(item) });
+				dispatch({
+					type: TOKENS_USER_IDS_DUCKLING,
+					payload: changedUserTokenofDuckling,
+				});
+				dispatch({
+					type: TOKENS_STAKE_IDS_DUCKLING,
+					payload: [],
+				});
+				const changedUserTokenofAlpha = userTokenIdsOfAlpha;
+				stakedTokenIdsOfAlpha.map((item, index) => { changedUserTokenofAlpha.push(item) });
+				dispatch({ type: TOKENS_USER_IDS_ALPHA, payload: changedUserTokenofAlpha });
+				dispatch({
+					type: TOKENS_STAKE_IDS_ALPHA,
+					payload: [],
+				});
+			}
 			dispatch({ type: TOKENS_LOADING, payload: false });
 		}))
 	}
@@ -116,8 +159,11 @@ const Statistics = ({ page }) => {
 		getRewardRequest()
 		// getClaimableToken();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-		console.log("library", library);
 	}, [active, maxSupplyAlpha]);
+
+	useEffect(() => {
+		getAlphaRemaning();
+	}, [tab]);
 
 	return (
 		<div className="Statistics_Wrapper">
@@ -169,7 +215,11 @@ const Statistics = ({ page }) => {
 					subTitle="PENDING"
 					imgType='png'
 				/>
-				<button onClick={claimAll} >CLAIM</button>
+				<div className="static-button-wrap">
+					<button onClick={claimAll} >CLAIM</button>
+					<button onClick={unStakeAllRequest} className="unstake_all" >UNSTAKE ALL</button>
+				</div>
+
 			</div>
 		</div>
 	);

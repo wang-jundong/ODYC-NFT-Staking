@@ -15,8 +15,8 @@ export const getTokenIdList = async (userAddress, tokenAddress) => {
         });
 
         if (response.status === 200) {
-            // response.data.assets.map((one) => tokenIdList.push({ id: one.token_id, image: one.image_url }));
-            response.data.assets.map((one) => tokenIdList.push(one.token_id));
+            response.data.assets.map((one) => tokenIdList.push({ id: one.token_id, image: one.image_url }));
+            // response.data.assets.map((one) => tokenIdList.push(one.token_id));
 
         }
     } catch (error) {

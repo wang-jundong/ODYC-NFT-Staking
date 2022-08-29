@@ -268,47 +268,80 @@ const tokensReducer = (state = initialState, action) => {
 export const selectIsLoading = (state) => state.tokens.isLoading;
 export const selectBalance = (state) => state.tokens.balance;
 
+// export const selectUserTokenIdsOfDuck = (state) => {
+//     let info = state.tokens.userTokenIdsOfDuck.map((one) => {
+//         return { value: one, label: "Duck #" + one };
+//     });
+//     info.sort((one, other) => one.value - other.value);
+//     return info;
+// };
+// export const selectStakedTokenIdsOfDuck = (state) => {
+//     let info = state.tokens.stakedTokenIdsOfDuck.map((one) => {
+//         return { value: one, label: "Duck #" + one };
+//     });
+//     info.sort((one, other) => one.value - other.value);
+//     return info;
+// };
+
+// export const selectUserTokenIdsOfDuckling = (state) => {
+//     let info = state.tokens.userTokenIdsOfDuckling.map((one) => {
+//         return { value: one, label: "Duckling #" + one };
+//     });
+//     info.sort((one, other) => one.value - other.value);
+//     return info;
+// };
+// export const selectStakedTokenIdsOfDuckling = (state) => {
+//     let info = state.tokens.stakedTokenIdsOfDuckling.map((one) => {
+//         return { value: one, label: "Duckling #" + one };
+//     });
+//     info.sort((one, other) => one.value - other.value);
+//     return info;
+// };
+// export const selectUserTokenIdsOfAlpha = (state) => {
+//     let info = state.tokens.userTokenIdsOfAlpha.map((one) => {
+//         return { value: one, label: "Alpha #" + one };
+//     });
+//     info.sort((one, other) => one.value - other.value);
+//     return info;
+// };
+// export const selectStakedTokenIdsOfAlpha = (state) => {
+//     let info = state.tokens.stakedTokenIdsOfAlpha.map((one) => {
+//         return { value: one, label: "Alpha #" + one };
+//     });
+//     info.sort((one, other) => one.value - other.value);
+//     return info;
+// };
+
+
 export const selectUserTokenIdsOfDuck = (state) => {
-    let info = state.tokens.userTokenIdsOfDuck.map((one) => {
-        return { value: one, label: "Duck #" + one };
-    });
-    info.sort((one, other) => one.value - other.value);
+    let info = state.tokens.userTokenIdsOfDuck;
+    info.sort((one, other) => one.id - other.id);
     return info;
 };
 export const selectStakedTokenIdsOfDuck = (state) => {
-    let info = state.tokens.stakedTokenIdsOfDuck.map((one) => {
-        return { value: one, label: "Duck #" + one };
-    });
-    info.sort((one, other) => one.value - other.value);
+    let info = state.tokens.stakedTokenIdsOfDuck;
+    info.sort((one, other) => one.id - other.id);
     return info;
 };
 
 export const selectUserTokenIdsOfDuckling = (state) => {
-    let info = state.tokens.userTokenIdsOfDuckling.map((one) => {
-        return { value: one, label: "Duckling #" + one };
-    });
-    info.sort((one, other) => one.value - other.value);
+    let info = state.tokens.userTokenIdsOfDuckling;
+    info.sort((one, other) => one.id - other.id);
     return info;
 };
 export const selectStakedTokenIdsOfDuckling = (state) => {
-    let info = state.tokens.stakedTokenIdsOfDuckling.map((one) => {
-        return { value: one, label: "Duckling #" + one };
-    });
-    info.sort((one, other) => one.value - other.value);
+    let info = state.tokens.stakedTokenIdsOfDuckling;
+    info.sort((one, other) => one.id - other.id);
     return info;
 };
 export const selectUserTokenIdsOfAlpha = (state) => {
-    let info = state.tokens.userTokenIdsOfAlpha.map((one) => {
-        return { value: one, label: "Alpha #" + one };
-    });
-    info.sort((one, other) => one.value - other.value);
+    let info = state.tokens.userTokenIdsOfAlpha;
+    info.sort((one, other) => one.id - other.id);
     return info;
 };
 export const selectStakedTokenIdsOfAlpha = (state) => {
-    let info = state.tokens.stakedTokenIdsOfAlpha.map((one) => {
-        return { value: one, label: "Alpha #" + one };
-    });
-    info.sort((one, other) => one.value - other.value);
+    let info = state.tokens.stakedTokenIdsOfAlpha;
+    info.sort((one, other) => one.id - other.id);
     return info;
 };
 

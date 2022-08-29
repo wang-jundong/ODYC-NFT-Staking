@@ -6,7 +6,6 @@ export const isApprovedForAllDuckling = async (active, account, library) => {
     const result = await ducklingContractInstance(library)
         .methods.isApprovedForAll(account, BEEADDRESS)
         .call();
-    console.log("____ duckling approved ____", result);
     return result;
 };
 
@@ -15,7 +14,6 @@ export const isAlphaApprovedForAllDuckling = async (active, account, library) =>
     const result = await ducklingContractInstance(library)
         .methods.isApprovedForAll(account, ALPHANFTADDRESS)
         .call();
-    console.log("____ duckling approved ____", result);
     return result;
 };
 
@@ -70,7 +68,6 @@ export const getUserDucklingIds = async (active, account, library) => {
     const tokenIdList = await ducklingContractInstance(library)
         .methods.walletOfOwner(account)
         .call();
-    console.log("------- user duckling id list ------", tokenIdList);
     return tokenIdList;
 };
 
@@ -79,6 +76,5 @@ export const getDucklingMaxSupply = async (active, account, library) => {
     const result = await ducklingContractInstance(library)
         .methods.maxSupply()
         .call();
-    console.log("____ duckling maxSupply ____", result);
     return result;
 };

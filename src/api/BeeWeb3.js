@@ -15,7 +15,6 @@ export const getStakedDuckIds = async (active, account, library) => {
     const tokenIdList = await beeContractInstance(library)
         .methods.getStakedDuck(account)
         .call();
-    console.log("------- staked duck id list ------", tokenIdList);
     return tokenIdList;
 };
 
@@ -24,7 +23,6 @@ export const getStakedDucklingIds = async (active, account, library) => {
     const tokenIdList = await beeContractInstance(library)
         .methods.getStakedDuckling(account)
         .call();
-    console.log("------- staked duckling id list ------", tokenIdList);
     return tokenIdList;
 };
 
@@ -33,7 +31,6 @@ export const getStakedAlphaIds = async (active, account, library) => {
     const tokenIdList = await beeContractInstance(library)
         .methods.getStakedAlpha(account)
         .call();
-    console.log("------- staked alpha id list ------", tokenIdList);
     return tokenIdList;
 };
 
@@ -112,7 +109,6 @@ export const stakeActionOfDuckling =
 export const stakeActionOfAlpha =
     (active, account, library, tokenIds, callback) => async (dispatch) => {
         if (!active) return false;
-        console.log("___ tokenIds ___", tokenIds);
         dispatch({ type: TOKENS_LOADING, payload: true });
         await beeContractInstance(library)
             .methods.stakeAlphaById(tokenIds)
@@ -200,7 +196,6 @@ export const getBalance = async (active, account, library) => {
     const balance = await beeContractInstance(library)
         .methods.balanceOf(account)
         .call();
-    console.log(balance, "get balance hahaha")
     return balance;
 };
 
@@ -213,12 +208,28 @@ export const getReward = async (active, account, library) => {
 };
 
 export const claim = (active, account, library, callback) => async (dispatch) => {
-    console.log("herhe arrived");
 
     if (!active) return false;
     dispatch({ type: TOKENS_LOADING, payload: true });
     await beeContractInstance(library)
         .methods.claimAll()
+        .send({ from: account })
+        .on("receipt", function (receipt) {
+            dispatch({ type: TOKENS_LOADING, payload: false });
+            callback(true);
+        })
+        .on("error", function (error) {
+            dispatch({ type: TOKENS_LOADING, payload: false });
+            callback(false);
+        });
+};
+
+export const unstakeAll = (active, account, library, callback) => async (dispatch) => {
+
+    if (!active) return false;
+    dispatch({ type: TOKENS_LOADING, payload: true });
+    await beeContractInstance(library)
+        .methods.unstakeAll()
         .send({ from: account })
         .on("receipt", function (receipt) {
             dispatch({ type: TOKENS_LOADING, payload: false });

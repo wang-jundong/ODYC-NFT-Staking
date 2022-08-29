@@ -7,6 +7,7 @@
     /* background-position: cover; */
     background-size: 100% 100%;
     background-position: center;
+    min-height: 100vh;
 }
 
 @media (max-width: 1200px) {

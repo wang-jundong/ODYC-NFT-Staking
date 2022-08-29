@@ -10,6 +10,7 @@ import { getAllowance, approveForBee } from "../../../api/BeeWeb3";
 import { gifs } from "../../../assets/gifs";
 import { pngs } from "../../../assets/pngs";
 import { svgs } from "../../../assets/svgs";
+import CustomSelect from "../../CustomSelect/CustomSelect";
 import { selectStakeTokensOfWulfzAndAlpha, selectUserTokenIdsOfDuck, selectUserTokenIdsOfDuckling } from "../../../redux/reducers/tokensReducer";
 import { TOKENS_LOADING } from "../../../redux/constants"
 import { showNotification } from "../../utils/NotificationUtils";
@@ -31,17 +32,20 @@ const AdoptionBook = () => {
     const userTokenIdsOfDuck = useSelector(selectUserTokenIdsOfDuck);
     const userTokenIdsOfDuckling = useSelector(selectUserTokenIdsOfDuckling);
     const [stakingTab, setStakingTab] = useState(0);
+    const [disable, setDisable] = useState(false);
     const { active, account, library } = useWeb3React();
     const dispatch = useDispatch();
 
     const onChangeDuckSelected = (selectedOption) => {
+
         setSelectedDuckToken(selectedOption);
-        const selectedTokenId = selectedOption.map((item, index) => parseInt(item.value));
+        const selectedTokenId = selectedOption.map((item, index) => parseInt(item.id));
         setSelectedDuckTokenId(selectedTokenId);
     }
     const onChangeDucklingSelected = (selectedOption) => {
+
         setSelectedDucklingToken(selectedOption);
-        const selectedTokenId = selectedOption.map((item, index) => parseInt(item.value));
+        const selectedTokenId = selectedOption.map((item, index) => parseInt(item.id));
         setSelectedDucklingTokenId(selectedTokenId);
     }
 
@@ -49,7 +53,6 @@ const AdoptionBook = () => {
         const isDuckApprove = await isAlphaApprovedForAllDuck(active, account, library);
         const isDucklingApprove = await isAlphaApprovedForAllDuckling(active, account, library);
         const allowance = parseInt(await getAllowance(active, account, library));
-        console.log(isDuckApprove, isDucklingApprove, allowance, "isDuckApprove for alpha");
         if (stakingTab === 0) {
             setIsApproved(true);
         } else if (stakingTab === 1) {
@@ -68,8 +71,22 @@ const AdoptionBook = () => {
         setSelectedDuckTokenId([]);
         setSelectedDucklingToken([]);
         setSelectedDucklingTokenId([]);
-        setAmount(0);
+
     }, [stakingTab])
+
+    useEffect(() => {
+        if (stakingTab === 0) {
+            setDisable(false);
+            setAmount(0);
+        } else if (stakingTab === 1) {
+            setDisable(true);
+            setAmount(selectedDucklingToken.length);
+
+        } else if (stakingTab === 2) {
+            setDisable(true)
+            setAmount(parseInt(selectedDucklingToken.length / 5));
+        }
+    }, [stakingTab, selectedDuckToken, selectedDucklingToken])
 
 
     const adoptRequset = async () => {
@@ -88,7 +105,6 @@ const AdoptionBook = () => {
                 })
             );
         } else if (stakingTab === 1) {
-            console.log(isApproved, "isapproved");
             if (isApproved) {
                 if (amount === 0) {
                     showNotification("error", "Please select correct amount!");
@@ -185,7 +201,7 @@ const AdoptionBook = () => {
 
     return (
         <div>
-            <Statistics page={1} />
+            <Statistics page={1} tab={stakingTab} />
 
             <div className="AdoptionBook_Wrapper">
                 {/* <img
@@ -236,24 +252,62 @@ const AdoptionBook = () => {
                     </div>
 
                     <div className="AdoptionBook_FlexContainer">
-
-                        <div>
-                            <img
-                                src={stakingTab === 0 ? "/images/Duck.png" : stakingTab === 1 ? "/images/Duckling.png" : "/images/alpha.png"}
-                                alt="Duck"
-                                draggable="false"
-                            />
-                            <h2>1 WULFZ</h2>
-                        </div>
-                        <h3>+</h3>
-                        <div>
-                            <img
-                                src={svgs.awoo_icon}
-                                alt="Awoo"
-                                draggable="false"
-                            />
-                            <h2>600 $AWOO</h2>
-                        </div>
+                        {stakingTab === 0 ? <>
+                            <div>
+                                <img
+                                    src="/images/eth-logo.png"
+                                    alt="Duck"
+                                    draggable="false"
+                                />
+                                {/* <h2>1 WULFZ</h2> */}
+                            </div>
+                        </>
+                            : stakingTab === 1 ? <>
+                                <div>
+                                    <img
+                                        src="/images/Duck.png"
+                                        alt="Duck"
+                                        draggable="false"
+                                    />
+                                    <h2>1 Duck</h2>
+                                </div>
+                                <h3>+</h3>
+                                <div>
+                                    <img
+                                        src="/images/Duckling.png"
+                                        alt="Duck"
+                                        draggable="false"
+                                    />
+                                    <h2>1 Duckling</h2>
+                                </div>
+                                <h3>+</h3>
+                                <div>
+                                    <img
+                                        src={svgs.awoo_icon}
+                                        alt="Awoo"
+                                        draggable="false"
+                                    />
+                                    <h2>210$ Grapes</h2>
+                                </div> </>
+                                : <>
+                                    <div>
+                                        <img
+                                            src="/images/Duckling.png"
+                                            alt="Duck"
+                                            draggable="false"
+                                        />
+                                        <h2>5 Duckling</h2>
+                                    </div>
+                                    <h3>+</h3>
+                                    <div>
+                                        <img
+                                            src={svgs.awoo_icon}
+                                            alt="Awoo"
+                                            draggable="false"
+                                        />
+                                        <h2>210$ Grapes</h2>
+                                    </div>
+                                </>}
                     </div>
 
                     <div className="AdoptionBook_ButtonContainer">
@@ -262,7 +316,12 @@ const AdoptionBook = () => {
                                 <label style={{ marginBottom: "-10px" }}>
                                     Duck to burn
                                 </label>
-                                <Select
+                                <CustomSelect
+                                    value={selectedDuckToken}
+                                    options={userTokenIdsOfDuck}
+                                    onChange={onChangeDuckSelected}
+                                />
+                                {/* <Select
                                     isMulti={true}
                                     styles={selectCustomStyle}
                                     value={selectedDuckToken}
@@ -271,13 +330,18 @@ const AdoptionBook = () => {
                                     onChange={(selectedOption) =>
                                         onChangeDuckSelected(selectedOption)
                                     }
-                                />
+                                /> */}
                             </div>
                             <div className="AdoptionBook_ButtonContainer-selectwrap-inner selectwrap_duckling" style={{ width: stakingTab === 2 ? "100%" : "" }}>
                                 <label style={{ marginBottom: "-10px" }}>
                                     Duckling to burn
                                 </label>
-                                <Select
+                                <CustomSelect
+                                    value={selectedDucklingToken}
+                                    options={userTokenIdsOfDuckling}
+                                    onChange={onChangeDucklingSelected}
+                                />
+                                {/* <Select
                                     isMulti={true}
                                     styles={selectCustomStyle}
                                     value={selectedDucklingToken}
@@ -286,12 +350,12 @@ const AdoptionBook = () => {
                                     onChange={(selectedOption) =>
                                         onChangeDucklingSelected(selectedOption)
                                     }
-                                />
+                                /> */}
                             </div>
                         </div>
                         <div className="AdoptionBook_ButtonContainer-inputwrap" style={{ marginTop: stakingTab === 0 ? "30px" : "", marginBottom: stakingTab === 0 ? "30px" : "" }}>
                             <label>Amount</label>
-                            <input type="number" placeholder="amount" value={amount} onChange={(e) => setAmount(parseInt(e.target.value))} />
+                            <input disabled={disable} type="number" placeholder="amount" value={amount} onChange={(e) => setAmount(parseInt(e.target.value))} />
                         </div>
 
                         <button onClick={() => adoptRequset()}>{isApproved ? "ADOPT" : "APPROVE"}</button>

@@ -65,96 +65,87 @@ const Stake = () => {
             account,
             DUCKNFTADDRESS
         );
-        console.log("_____ user duck id list _____", userTokenIdsOfDuck);
 
-        //get from Opensea
+        const userTokenIdsOfDuckling = await getTokenIdList(
+            account,
+            DUCKLINGNFTADDRESS
+        );
 
-        // const stakedTokenIdsOfDuck = await getTokenIdList(
-        //     BEEADDRESS,
-        //     DUCKNFTADDRESS
-        // );
-
-        // console.log("_____ staked duck id list _____", stakedTokenIdsOfDuck);
-
-
-        // const userTokenIdsOfDuckling = await getTokenIdList(
-        //     account,
-        //     DUCKLINGNFTADDRESS
-        // );
-        // console.log("_____ user duckling id list _____", userTokenIdsOfDuckling);
+        const userTokenIdsOfAlpha = await getTokenIdList(
+            account,
+            ALPHANFTADDRESS
+        );
 
 
-        // const stakedTokenIdsOfDuckling = await getTokenIdList(
-        //     BEEADDRESS,
-        //     DUCKLINGNFTADDRESS
-        // );
-
-        // console.log("_____ stake duckling id list _____", stakedTokenIdsOfDuckling);
-
-
-        // const userTokenIdsOfAlpha = await getTokenIdList(
-        //     account,
-        //     ALPHANFTADDRESS
-        // );
-
-        // console.log("_____ user alpha id list _____", userTokenIdsOfAlpha);
-
-
-        // const stakedTokenIdsOfAlpha = await getTokenIdList(
-        //     BEEADDRESS,
-        //     ALPHANFTADDRESS
-        // );
-
-        // console.log("_____ stake alpha id list _____", stakedTokenIdsOfAlpha);
-
-
-        // get from smart contract
-        const stakedTokenIdsOfDuck = await getStakedDuckIds(
+        const stakedTokenIdsOfDuckFromContract = await getStakedDuckIds(
             active,
             account,
             library
         );
 
-        const userTokenIdsOfDuckling = await getUserDucklingIds(
+        const stakedTokenIdsOfDucklingFromContract = await getStakedDucklingIds(
             active,
             account,
             library
         );
 
-
-        const stakedTokenIdsOfDuckling = await getStakedDucklingIds(
+        const stakedTokenIdsOfAlphaFromContract = await getStakedAlphaIds(
             active,
             account,
             library
         );
-
-        const userTokenIdsOfAlpha = await getUserAlphaIds(
-            active,
-            account,
-            library
-        );
-        const stakedTokenIdsOfAlpha = await getStakedAlphaIds(
-            active,
-            account,
-            library
-        );
-
-        // get total staked token
 
         const totalStakedTokenIdsOfDuck = await getTokenIdList(
             BEEADDRESS,
             DUCKNFTADDRESS
         );
 
+
         const totalStakedTokenIdsOfDuckling = await getTokenIdList(
             BEEADDRESS,
             DUCKLINGNFTADDRESS
         );
 
+
         const totalStakedTokenIdsOfAlpha = await getTokenIdList(
             BEEADDRESS,
             ALPHANFTADDRESS
         );
+
+
+        //get stake token with image
+        const stakedTokenIdsOfDuck = [];
+        const stakedTokenIdsOfDuckling = [];
+        const stakedTokenIdsOfAlpha = [];
+
+        stakedTokenIdsOfDuckFromContract.map((item, index) => {
+            totalStakedTokenIdsOfDuck.map((idWithImage, index) => {
+                if (item === idWithImage.id)
+                    stakedTokenIdsOfDuck.push(idWithImage)
+                return true;
+            })
+            return true;
+        })
+
+
+        stakedTokenIdsOfDucklingFromContract.map((item, index) => {
+            totalStakedTokenIdsOfDuckling.map((idWithImage, index) => {
+                if (item === idWithImage.id)
+                    stakedTokenIdsOfDuckling.push(idWithImage)
+                return true;
+            })
+            return true;
+        })
+
+
+        stakedTokenIdsOfAlphaFromContract.map((item, index) => {
+            totalStakedTokenIdsOfAlpha.map((idWithImage, index) => {
+                if (item === idWithImage.id)
+                    stakedTokenIdsOfAlpha.push(idWithImage)
+                return true;
+            })
+            return true;
+        })
 
 
 

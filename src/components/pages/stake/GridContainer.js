@@ -1,8 +1,8 @@
 import { useWeb3React } from "@web3-react/core";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Select from "react-select";
-// import CustomSelect from "../../CustomSelect/CustomSelect";
+import Select, { defaultTheme } from "react-select";
+import CustomSelect from "../../CustomSelect/CustomSelect";
 import {
     isApprovedForAllAlpha,
     setApprovalForAllAlpha
@@ -103,13 +103,13 @@ const GridContainer = () => {
     }, [active]);
 
     const duckApproveOrStake = () => {
+
         if (selectedUserTokensOfDuck.length === 0) {
             showNotification("error", "Please select token");
             return;
         }
         if (isDuckApproved) {
-            let tokenIds = selectedUserTokensOfDuck.map((one) => one.value);
-            console.log("here")
+            let tokenIds = selectedUserTokensOfDuck.map((item, index) => { return item.id });
             dispatch(
                 stakeActionOfDuck(
                     active,
@@ -122,7 +122,6 @@ const GridContainer = () => {
                 )
             );
         } else {
-            console.log("second here")
             setApprovalForAllDuck(active, account, library, (status) => {
                 setIsDuckApproved(status);
             });
@@ -135,7 +134,7 @@ const GridContainer = () => {
             return;
         }
         if (isDucklingApproved) {
-            let tokenIds = selectedUserTokensOfDuckling.map((one) => one.value);
+            let tokenIds = selectedUserTokensOfDuckling.map((item, index) => { return item.id });
             dispatch(
                 stakeActionOfDuckling(
                     active,
@@ -160,7 +159,7 @@ const GridContainer = () => {
             return;
         }
         if (isAlphaApproved) {
-            let tokenIds = selectedUserTokensOfAlpha.map((one) => one.value);
+            let tokenIds = selectedUserTokensOfAlpha.map((item, index) => { return item.id });
             dispatch(
                 stakeActionOfAlpha(
                     active,
@@ -184,7 +183,7 @@ const GridContainer = () => {
             showNotification("error", "Please select token!");
             return;
         }
-        let tokenIds = selectedStakedTokensOfDuck.map((one) => one.value);
+        let tokenIds = selectedStakedTokensOfDuck.map((item, index) => { return item.id });
         dispatch(
             unstakeActionOfDuck(
                 active,
@@ -203,7 +202,7 @@ const GridContainer = () => {
             showNotification("error", "Please select token!");
             return;
         }
-        let tokenIds = selectedStakedTokensOfDuckling.map((one) => one.value);
+        let tokenIds = selectedStakedTokensOfDuckling.map((item, index) => { return item.id });
         dispatch(
             unstakeActionOfDuckling(
                 active,
@@ -222,7 +221,7 @@ const GridContainer = () => {
             showNotification("error", "Please select token!");
             return;
         }
-        let tokenIds = selectedStakedTokensOfAlpha.map((one) => one.value);
+        let tokenIds = selectedStakedTokensOfAlpha.map((item, index) => { return item.id });
         dispatch(
             unstakeActionOfAlpha(
                 active,
@@ -257,23 +256,29 @@ const GridContainer = () => {
     };
 
     const onClickMaxStake = () => {
-        if (stakingTab === 0) setSelectedUserTokensOfDuck(userTokenIdsOfDuck);
+        if (stakingTab === 0) {
+            setSelectedUserTokensOfDuck(userTokenIdsOfDuck.map((item, index) => { return item.id }));
+        }
         else if (stakingTab === 1)
-            setSelectedUserTokensOfDuckling(userTokenIdsOfDuckling);
+            setSelectedUserTokensOfDuckling(userTokenIdsOfDuckling.map((item, index) => { return item.id }));
         else if (stakingTab === 2)
-            setSelectedUserTokensOfAlpha(userTokenIdsOfAlpha);
+            setSelectedUserTokensOfAlpha(userTokenIdsOfAlpha.map((item, index) => { return item.id }));
     };
 
     const onClickMaxUnstake = () => {
         if (unStakingTab === 0)
-            setSelectedStakedTokensOfDuck(stakedTokenIdsOfDuck);
+            setSelectedStakedTokensOfDuck(stakedTokenIdsOfDuck.map((item, index) => { return item.id }));
         else if (unStakingTab === 1)
-            setSelectedStakedTokensOfDuckling(stakedTokenIdsOfDuckling);
+            setSelectedStakedTokensOfDuckling(stakedTokenIdsOfDuckling.map((item, index) => { return item.id }));
         else if (unStakingTab === 2)
-            setSelectedStakedTokensOfAlpha(stakedTokenIdsOfAlpha);
+            setSelectedStakedTokensOfAlpha(stakedTokenIdsOfAlpha.map((item, index) => { return item.id }));
     };
 
     const onUserTokensChange = (selectedOption) => {
+
+        console.log(selectedOption, "selectedOption");
+
+
         if (stakingTab === 0) {
             setSelectedUserTokensOfDuck(selectedOption);
         } else if (stakingTab === 1) {
@@ -284,6 +289,8 @@ const GridContainer = () => {
     };
 
     const onStakedTokensChange = (selectedOption) => {
+
+
         if (unStakingTab === 0) {
             setSelectedStakedTokensOfDuck(selectedOption);
         } else if (unStakingTab === 1) {
@@ -336,6 +343,7 @@ const GridContainer = () => {
         }
 
     }, [stakingTab, userTokenIdsOfDuck, userTokenIdsOfDuckling, userTokenIdsOfAlpha])
+
 
     return (
         <div>
@@ -423,7 +431,7 @@ const GridContainer = () => {
                             <h2>
                                 {(stakingTab === 0 && "$Grapes: 10") ||
                                     (stakingTab === 1 && "$Grapes: 5") ||
-                                    (stakingTab === 2 && "$Grapes: 50")}
+                                    (stakingTab === 2 && "$Grapes: 17")}
                             </h2>
                             <h3>Per staked</h3>
                         </div>
@@ -434,8 +442,23 @@ const GridContainer = () => {
                                 (stakingTab === 1 && "Duckling to stake") ||
                                 (stakingTab === 2 && "Alpha to stake")}
                         </label>
-                        {/* <CustomSelect /> */}
-                        <Select
+
+                        <CustomSelect
+                            value={
+                                (stakingTab === 0 &&
+                                    selectedUserTokensOfDuck) ||
+                                (stakingTab === 1 &&
+                                    selectedUserTokensOfDuckling) ||
+                                (stakingTab === 2 && selectedUserTokensOfAlpha)
+                            }
+                            options={
+                                (stakingTab === 0 && userTokenIdsOfDuck) ||
+                                (stakingTab === 1 && userTokenIdsOfDuckling) ||
+                                (stakingTab === 2 && userTokenIdsOfAlpha)
+                            }
+                            onChange={onUserTokensChange}
+                        />
+                        {/* <Select
                             styles={selectCustomStyle}
                             value={
                                 (stakingTab === 0 &&
@@ -454,7 +477,7 @@ const GridContainer = () => {
                             onChange={(selected) =>
                                 onUserTokensChange(selected)
                             }
-                        />
+                        /> */}
                         <div className="Card_ButtonContainer">
                             <button
                                 className="Card_ActionBtn Card_Green"
@@ -547,9 +570,22 @@ const GridContainer = () => {
                                 (unStakingTab === 1 && "DUCKLING to unstake") ||
                                 (unStakingTab === 2 && "Alpha to unstake")}
                         </label>
-
-                        <Select
-                            styles={selectCustomStyle}
+                        <CustomSelect
+                            value={
+                                (unStakingTab === 0 &&
+                                    selectedStakedTokensOfDuck) ||
+                                (unStakingTab === 1 &&
+                                    selectedStakedTokensOfDuckling) ||
+                                (unStakingTab === 2 && selectedStakedTokensOfAlpha)
+                            }
+                            options={
+                                (unStakingTab === 0 && stakedTokenIdsOfDuck) ||
+                                (unStakingTab === 1 && stakedTokenIdsOfDuckling) ||
+                                (unStakingTab === 2 && stakedTokenIdsOfAlpha)
+                            }
+                            onChange={onStakedTokensChange}
+                        />
+                        {/* <Select
                             value={
                                 (unStakingTab === 0 &&
                                     selectedStakedTokensOfDuck) ||
@@ -568,7 +604,7 @@ const GridContainer = () => {
                             onChange={(selected) =>
                                 onStakedTokensChange(selected)
                             }
-                        />
+                        /> */}
                         <div className="Card_ButtonContainer">
                             <button
                                 className="Card_ActionBtn Card_Red"

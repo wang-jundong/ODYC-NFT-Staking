@@ -7,7 +7,6 @@ export const stakedTokensOfPool = async (active, account, library) => {
 	var result = await stakingPoolContractInstance(library)
 		.methods.stakedTokensOf(account)
 		.call();
-	console.log("----- stakedTokensOfPool ----", result);
 	return result;
 };
 
@@ -16,7 +15,6 @@ export const getClaimableTokenOfPool = async (active, account, library) => {
 	var result = await stakingPoolContractInstance(library)
 		.methods.getClaimableToken(account)
 		.call();
-	console.log("---- getClaimableTokenOfPool", result);
 	if (result) {
 		return result;
 	} else {
