@@ -223,7 +223,7 @@ const AdoptionBook = () => {
                     draggable="false"
                 />
                 <div className="AdoptionBook_Left">
-                    <h1 className="text-accent">ADOPTION</h1>
+                    <h1 className="text-accent">MINT</h1>
                     <div className="Card_Selector">
                         <button
                             className={
@@ -231,7 +231,7 @@ const AdoptionBook = () => {
                             }
                             onClick={() => setStakingTab(0)}
                         >
-                            DUCK
+                            Option 1
                         </button>
                         <button
                             className={
@@ -239,7 +239,7 @@ const AdoptionBook = () => {
                             }
                             onClick={() => setStakingTab(1)}
                         >
-                            DUCKLING
+                            Option 2
                         </button>
                         <button
                             className={
@@ -247,7 +247,7 @@ const AdoptionBook = () => {
                             }
                             onClick={() => setStakingTab(2)}
                         >
-                            ALPHA
+                            Option 3
                         </button>
                     </div>
 
@@ -259,7 +259,10 @@ const AdoptionBook = () => {
                                     alt="Duck"
                                     draggable="false"
                                 />
-                                {/* <h2>1 WULFZ</h2> */}
+                                { <h2>ETH</h2> }
+                                <label style={{ marginBottom: "-10px" }}>
+                                    Max Mint of 10 per transaction
+                                </label>
                             </div>
                         </>
                             : stakingTab === 1 ? <>
@@ -283,8 +286,8 @@ const AdoptionBook = () => {
                                 <h3>+</h3>
                                 <div>
                                     <img
-                                        src={svgs.awoo_icon}
-                                        alt="Awoo"
+                                        src="/images/singlecoin.png"
+                                        alt="Grape"
                                         draggable="false"
                                     />
                                     <h2>210$ Grapes</h2>
@@ -296,13 +299,13 @@ const AdoptionBook = () => {
                                             alt="Duck"
                                             draggable="false"
                                         />
-                                        <h2>5 Duckling</h2>
+                                        <h2>5 Ducklings</h2>
                                     </div>
                                     <h3>+</h3>
                                     <div>
                                         <img
-                                            src={svgs.awoo_icon}
-                                            alt="Awoo"
+                                            src="/images/singlecoin.png"
+                                            alt="Grape"
                                             draggable="false"
                                         />
                                         <h2>210$ Grapes</h2>
@@ -314,7 +317,7 @@ const AdoptionBook = () => {
                         <div className="AdoptionBook_ButtonContainer-selectwrap" style={{ display: stakingTab === 0 ? "none" : "" }}>
                             <div className="AdoptionBook_ButtonContainer-selectwrap-inner" style={{ display: stakingTab === 2 ? "none" : "" }}>
                                 <label style={{ marginBottom: "-10px" }}>
-                                    Duck to burn
+                                    Ducks to burn
                                 </label>
                                 <CustomSelect
                                     value={selectedDuckToken}
@@ -334,7 +337,7 @@ const AdoptionBook = () => {
                             </div>
                             <div className="AdoptionBook_ButtonContainer-selectwrap-inner selectwrap_duckling" style={{ width: stakingTab === 2 ? "100%" : "" }}>
                                 <label style={{ marginBottom: "-10px" }}>
-                                    Duckling to burn
+                                    Ducklings to burn
                                 </label>
                                 <CustomSelect
                                     value={selectedDucklingToken}
@@ -354,15 +357,15 @@ const AdoptionBook = () => {
                             </div>
                         </div>
                         <div className="AdoptionBook_ButtonContainer-inputwrap" style={{ marginTop: stakingTab === 0 ? "30px" : "", marginBottom: stakingTab === 0 ? "30px" : "" }}>
-                            <label>Amount</label>
+                            <label>Mint Amount</label>
                             <input disabled={disable} type="number" placeholder="amount" value={amount} onChange={(e) => setAmount(parseInt(e.target.value))} />
                         </div>
 
-                        <button onClick={() => adoptRequset()}>{isApproved ? "ADOPT" : "APPROVE"}</button>
+                        <button disabled onClick={() => adoptRequset()}>{isApproved ? "MINT NOT LIVE" : "MINT NOT LIVE"}</button>
                     </div>
                 </div>
                 <div className="AdoptionBook_Right">
-                    {/* <h1>Pupz will hatch from the Egg!</h1>
+                    {/* <h1> Egg!</h1>
                     <img
                         src={gifs.daycare}
                         alt="Egg Hatching"

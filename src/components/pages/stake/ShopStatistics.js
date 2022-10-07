@@ -8,13 +8,13 @@ const ShopStatistics = () => {
                 <div className="ShopStatistics_GridContainer">
                     <div className="ShopStatistics_Item">
                         <img
-                            src={svgs.baoxiang_icon}
+                            src="/images/balance.png"
                             alt="baoxiang"
                             draggable="false"
                         />
                         <div>
-                            <h2>0</h2>
-                            <h3>BALANCE</h3>
+                            <h2></h2>
+                            <h3>Shop with grapes</h3>
                         </div>
                     </div>
                     <a
@@ -23,7 +23,7 @@ const ShopStatistics = () => {
                         target="_blank"
                         rel="noreferrer"
                     >
-                        Buy Wulfz
+                        Buy Ducks
                     </a>
                     <div className="ShopStatistics_BtnContainer">
                         <button className="ShopStatistics_LiveBtn false">

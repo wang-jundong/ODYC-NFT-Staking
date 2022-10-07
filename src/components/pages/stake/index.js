@@ -66,24 +66,29 @@ const Stake = () => {
             DUCKNFTADDRESS
         );
 
+        console.log(userTokenIdsOfDuck, "userTokenIdsOfDuck");
+
         const userTokenIdsOfDuckling = await getTokenIdList(
             account,
             DUCKLINGNFTADDRESS
         );
+        console.log(userTokenIdsOfDuckling, "userTokenIdsOfDuckling");
+
 
         const userTokenIdsOfAlpha = await getTokenIdList(
             account,
             ALPHANFTADDRESS
         );
 
-
         const stakedTokenIdsOfDuckFromContract = await getStakedDuckIds(
             active,
             account,
             library
-        );
+        ); 
 
-        const stakedTokenIdsOfDucklingFromContract = await getStakedDucklingIds(
+        console.log("here");
+
+       const stakedTokenIdsOfDucklingFromContract = await getStakedDucklingIds(
             active,
             account,
             library
@@ -100,17 +105,40 @@ const Stake = () => {
             DUCKNFTADDRESS
         );
 
-
+        console.log(totalStakedTokenIdsOfDuck, "totalStakedTokenIdsOfDuck");
+        
         const totalStakedTokenIdsOfDuckling = await getTokenIdList(
             BEEADDRESS,
             DUCKLINGNFTADDRESS
-        );
+        ); 
+
+        //alpha contract address is test
+        // const totalStakedTokenIdsOfAlpha = await getTokenIdList(
+        //     BEEADDRESS,
+        //     ALPHANFTADDRESS
+        // ); 
 
 
-        const totalStakedTokenIdsOfAlpha = await getTokenIdList(
-            BEEADDRESS,
-            ALPHANFTADDRESS
-        );
+
+        // const stakedTokenIdsOfDuckling = await getStakedDucklingIds(
+        //     active,
+        //     account,
+        //     library
+        // );
+
+        // const stakedTokenIdsOfAlpha = await getStakedAlphaIds(
+        //     active,
+        //     account,
+        //     library
+        // );
+
+
+        // const stakedTokenIdsOfDuck = await getStakedDuckIds(
+        //     active,
+        //     account,
+        //     library
+        // );
+        
 
 
         //get stake token with image
@@ -137,15 +165,15 @@ const Stake = () => {
             return true;
         })
 
-
-        stakedTokenIdsOfAlphaFromContract.map((item, index) => {
-            totalStakedTokenIdsOfAlpha.map((idWithImage, index) => {
-                if (item === idWithImage.id)
-                    stakedTokenIdsOfAlpha.push(idWithImage)
-                return true;
-            })
-            return true;
-        })
+        //alpha contract is test address
+        // stakedTokenIdsOfAlphaFromContract.map((item, index) => {
+        //     totalStakedTokenIdsOfAlpha.map((idWithImage, index) => {
+        //         if (item === idWithImage.id)
+        //             stakedTokenIdsOfAlpha.push(idWithImage)
+        //         return true;
+        //     })
+        //     return true;
+        // }) 
 
 
 
@@ -161,13 +189,16 @@ const Stake = () => {
             account,
             library
         );
+        console.log(userTokenIdsOfDuck, "finally");
 
-        const alphaMaxSupply = await getAlphaMaxSupply(
-            active,
-            account,
-            library
-        );
+        // const alphaMaxSupply = await getAlphaMaxSupply(
+        //     active,
+        //     account,
+        //     library
+        // );
 
+        console.log(userTokenIdsOfDuck, "finally ++++");
+        console.log(stakedTokenIdsOfDuck, "finally ++");
 
 
         dispatch({ type: TOKENS_USER_IDS_DUCK, payload: userTokenIdsOfDuck });
@@ -188,7 +219,7 @@ const Stake = () => {
             type: TOKENS_STAKE_IDS_ALPHA,
             payload: stakedTokenIdsOfAlpha,
         });
-        dispatch({
+         dispatch({
             type: TOTAL_TOKENS_STAKE_IDS_DUCK,
             payload: totalStakedTokenIdsOfDuck,
         });
@@ -196,10 +227,11 @@ const Stake = () => {
             type: TOTAL_TOKENS_STAKE_IDS_DUCKLING,
             payload: totalStakedTokenIdsOfDuckling,
         });
-        dispatch({
-            type: TOTAL_TOKENS_STAKE_IDS_ALPHA,
-            payload: totalStakedTokenIdsOfAlpha,
-        });
+        //alpha contract address is test
+        // dispatch({
+        //     type: TOTAL_TOKENS_STAKE_IDS_ALPHA,
+        //     payload: totalStakedTokenIdsOfAlpha,
+        // });
         dispatch({
             type: MAX_SUPPLY_DUCK,
             payload: duckMaxSupply,
@@ -208,10 +240,10 @@ const Stake = () => {
             type: MAX_SUPPLY_DUCKLING,
             payload: ducklingMaxSupply,
         });
-        dispatch({
-            type: MAX_SUPPLY_ALPHA,
-            payload: alphaMaxSupply,
-        });
+        // dispatch({
+        //     type: MAX_SUPPLY_ALPHA,
+        //     payload: alphaMaxSupply,
+        // });
 
     };
 

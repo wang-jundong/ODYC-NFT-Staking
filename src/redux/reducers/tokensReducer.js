@@ -319,8 +319,11 @@ export const selectUserTokenIdsOfDuck = (state) => {
     return info;
 };
 export const selectStakedTokenIdsOfDuck = (state) => {
-    let info = state.tokens.stakedTokenIdsOfDuck;
-    info.sort((one, other) => one.id - other.id);
+    let info = state.tokens.stakedTokenIdsOfDuck.map((one) => {
+        return { value: one, label: "Duck #" + one };
+    });
+    info.sort((one, other) => one.value - other.value);
+    
     return info;
 };
 
@@ -330,8 +333,10 @@ export const selectUserTokenIdsOfDuckling = (state) => {
     return info;
 };
 export const selectStakedTokenIdsOfDuckling = (state) => {
-    let info = state.tokens.stakedTokenIdsOfDuckling;
-    info.sort((one, other) => one.id - other.id);
+    let info = state.tokens.stakedTokenIdsOfDuckling.map((one) => {
+        return { value: one, label: "Duckling #" + one };
+    });
+    info.sort((one, other) => one.value - other.value);
     return info;
 };
 export const selectUserTokenIdsOfAlpha = (state) => {
@@ -340,8 +345,10 @@ export const selectUserTokenIdsOfAlpha = (state) => {
     return info;
 };
 export const selectStakedTokenIdsOfAlpha = (state) => {
-    let info = state.tokens.stakedTokenIdsOfAlpha;
-    info.sort((one, other) => one.id - other.id);
+    let info = state.tokens.stakedTokenIdsOfAlpha.map((one) => {
+        return { value: one, label: "Alpha #" + one };
+    });
+    info.sort((one, other) => one.value - other.value);
     return info;
 };
 

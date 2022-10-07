@@ -11,6 +11,7 @@ import duck from "./pngs/brands/duck.png";
 import duckling from "./pngs/brands/duckling.png";
 import ducky from "./pngs/brands/ducky.png";
 import richie from "./pngs/brands/richie.png";
+import nonny from "./pngs/brands/nonny.png";
 
 // skills
 import css3 from "./pngs/skills/css3.png";
@@ -38,6 +39,7 @@ export const pngs = {
 	duckling: duckling,
 	ducky: ducky,
 	richie: richie,
+	nonny: nonny,
 
 	css3: css3,
 	figma: figma,

@@ -47,15 +47,10 @@ const MobileMenu = ({ setShowModal, setPage }) => {
 			<div className="MobileMenu_Divider"></div>
 			<div className="MobileMenu_LinksContainer">
 				<MobileMenuItem
-					text="WULFZ HOUSE"
+					text="THE DOCKS"
 					onClickItem={() => setPage(0)}
 				/>
-				<MobileMenuItem text="DAYCARE" onClickItem={() => setPage(1)} />
-				<MobileMenuItem
-					text="FULL MOON"
-					onClickItem={() => setPage(2)}
-				/>
-				<MobileMenuItem text="SHOP" onClickItem={() => setPage(0)} />
+				<MobileMenuItem text="MINT" onClickItem={() => setPage(1)} />
 			</div>
 		</div>
 	);

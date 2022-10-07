@@ -40,8 +40,8 @@ const Statistics = ({ page, tab }) => {
 
 	useEffect(() => {
 		setStakedNumber(stakedTokenIdsOfDuck.length + stakedTokenIdsOfDuckling.length + stakedTokenIdsOfAlpha.length);
-		setdayYield(userTokenIdsOfDuck.length * 10 + userTokenIdsOfDuckling.length * 5 + userTokenIdsOfAlpha.length * 17);
-	}, [stakedTokenIdsOfDuck, stakedTokenIdsOfDuckling, stakedTokenIdsOfAlpha, userTokenIdsOfDuck, userTokenIdsOfDuckling, userTokenIdsOfAlpha])
+		setdayYield(stakedTokenIdsOfDuck.length * 10 + stakedTokenIdsOfDuckling.length * 5 + stakedTokenIdsOfAlpha.length * 17);
+	}, [stakedTokenIdsOfDuck, stakedTokenIdsOfDuckling, stakedTokenIdsOfAlpha])
 
 	// const remainingOfMellon = async () => {
 	// 	if (!active) return;
@@ -85,7 +85,7 @@ const Statistics = ({ page, tab }) => {
 			setRemainingMellon(`${result}/444`);
 		} else {
 			var result = await getTotalSupply(active, account, library);
-			setRemainingMellon(maxSupplyAlpha - result);
+			setRemainingMellon(result);
 		}
 	}
 
@@ -186,10 +186,11 @@ const Statistics = ({ page, tab }) => {
 				)}
 				{page === 1 && (
 					<StatisticsItem
-						imgUrl='/images/egg-icon.svg'
+						imgUrl='/images/alpha.png'
 						alt="egg"
 						title={remainingMellon}
-						subTitle="REMAINING"
+						subTitle="MINTED"
+						imgType='png'
 					/>
 				)}
 				{page === 2 && (

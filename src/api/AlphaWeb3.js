@@ -111,6 +111,7 @@ export const goose = (active, account, library, count, ducklingTokenIds, callbac
 
 export const getAlphaMaxSupply = async (active, account, library) => {
     if (!active) return false;
+
     const result = await alphaContractInstance(library)
         .methods.maxSupply()
         .call();

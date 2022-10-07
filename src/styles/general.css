@@ -927,7 +927,8 @@
     align-items: center;
     height: 96px;
     width: 260px;
-    background-image: url("/src/assets/svgs/statistics-item-background.svg");
+    /* background-image: url("/src/assets/svgs/statistics-item-background.svg"); */
+    background-image: url("/public/images/svg/statistics-item-background.svg");
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: cover;
@@ -936,6 +937,8 @@
 .ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_Item img {
     -webkit-transform: translateX(-25px);
     transform: translateX(-25px);
+    width: 92px;
+    height: 95px;
 }
 
 .ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_Item div {
@@ -967,10 +970,12 @@
     height: 75%;
     aspect-ratio: 3;
     background-color: #4d83f7;
-    background: url("/src/assets/svgs/blue-btn-background-shop-statistics.svg");
+    /* background: url("/src/assets/svgs/blue-btn-background-shop-statistics.svg"); */
+    background: url("/public/images/blue-button.png");
     background-repeat: no-repeat !important;
-    background-size: cover !important;
-    background-position: 50% !important;
+    /* background-size: cover !important; */
+    /* background-position: 50% !important; */
+    background-size: 100% 100%;
     font-weight: 600;
     font-size: 24px;
     opacity: 0.8;
@@ -1011,17 +1016,19 @@
     height: 75%;
     aspect-ratio: 2.6;
     background-color: #4d83f7;
-    background: url("/src/assets/svgs/green-btn-background.svg");
+    /* background: url("/src/assets/svgs/green-btn-background.svg"); */
+    background: url("/public/images/green-button.png");
     background-repeat: no-repeat !important;
-    background-size: cover !important;
-    background-position: 50% !important;
+    /* background-size: cover !important; */
+    /* background-position: 50% !important; */
+    background-size: 100% 100%;
     font-weight: 600;
     font-size: 24px;
     opacity: 0.5;
 }
 
 .ShopStatistics_Wrapper .ShopStatistics_GridContainer .ShopStatistics_BtnContainer .ShopStatistics_EndedBtn {
-    display: -webkit-flex;
+    /* display: -webkit-flex; */
     display: flex;
     -webkit-align-items: center;
     align-items: center;
@@ -1031,10 +1038,12 @@
     height: 75%;
     aspect-ratio: 2.6;
     background-color: #4d83f7;
-    background: url("/src/assets/svgs/red-btn-background.svg");
+    /* background: url("/src/assets/svgs/red-btn-background.svg"); */
+    background: url("/public/images/red-button.png");
     background-repeat: no-repeat !important;
-    background-size: cover !important;
-    background-position: 50% !important;
+    /* background-size: cover !important; */
+    /* background-position: 50% !important; */
+    background-size: 100% 100%;
     font-weight: 600;
     font-size: 24px;
     opacity: 0.5;

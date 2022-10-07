@@ -15,6 +15,7 @@ export const getStakedDuckIds = async (active, account, library) => {
     const tokenIdList = await beeContractInstance(library)
         .methods.getStakedDuck(account)
         .call();
+    console.log(tokenIdList, "staked token on bee");
     return tokenIdList;
 };
 

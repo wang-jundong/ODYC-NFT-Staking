@@ -108,10 +108,14 @@ const Navbar = ({ setPage }) => {
 						onClickItem={() => navigate("/")}
 					/>
 					<NavbarItem
-						text="WULFZ HOUSE"
+						text="OLD STAKING"
+						onClickItem={() => navigate("//old.okayduckyachtclub.xyz/stake")}
+					/>
+					<NavbarItem
+						text="THE DOCK"
 						onClickItem={() => setPage(0)}
 					/>
-					<NavbarItem text="DAYCARE" onClickItem={() => setPage(1)} />
+					<NavbarItem text="ALPHA MINT" onClickItem={() => setPage(1)} />
 					{/* <NavbarItem
 						text="FULL MOON"
 						onClickItem={() => setPage(2)}
@@ -119,12 +123,12 @@ const Navbar = ({ setPage }) => {
 					<NavbarItem text="MARKET" onClickItem={() => setPage(3)} />
 				</div>
 				<div className="Navbar_ButtonContainer">
-					<NavbarIconItem iconUrl='/images/discord.png' alt="Discord" />
+					
 					<button onClick={() => onClickConnect()}>
 						{displayUserAddress()}
 					</button>
 				</div>
-				<h1>WULFZ HOUSE</h1>
+				<h1>THE DOCK</h1>
 				<div className="Navbar_MenuToggler">
 					<div
 						className="hamburger-react"
